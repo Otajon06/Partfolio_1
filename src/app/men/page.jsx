@@ -1,3 +1,4 @@
+import Footer from "../deteils/footer/Footer";
 import Navbar from "../deteils/navbar";
 import MenSection from "../deteils/section/menSection";
 import styles from "../page.module.css";
@@ -9,6 +10,7 @@ export default function Men() {
         <Navbar/>
       </div>
         <MenSection/>
+        <Footer/>
     </main>
   );
 }

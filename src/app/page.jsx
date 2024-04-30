@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Navbar from "./deteils/navbar";
 import HomeSection from "./deteils/section/homeSection";
-import HomeFooter from "./deteils/footer/homeFooter";
+import Footer from "./deteils/footer/Footer";
 
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       </div>
       <div className={styles.space}></div>
       <HomeSection/>
-      <HomeFooter/>
+      <Footer/>
     </main>
   );
 }

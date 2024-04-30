@@ -1,19 +1,11 @@
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "../page.module.css";
-import Page from "../pages/PagesWomen";
-
-const Cards = (props) => {
-    console.log(props.collor);
-    const {id} = useParams()
+const HomeCards = (props) => {
     return (
         <div className={styles.Card} >
                 
                 <div className={styles.pictures}>
             <img src={props.rasm} alt="IMG" className={props.style} />
-            <img src={props.rasm2} alt="IMG" className={props.style2} />
-            <img src={props.rasm3} alt="IMG" className={props.style3} />
-            <img src={props.rasm4} alt="IMG" className={props.style4} />
             </div>
             <div>
                 <h3 className={styles.title}>{props.title}</h3>
@@ -25,4 +17,4 @@ const Cards = (props) => {
     )
 }
 
-export default Cards;
+export default HomeCards;
