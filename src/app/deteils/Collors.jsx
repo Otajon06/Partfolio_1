@@ -1,11 +1,11 @@
-import Cards from "../cards";
-import styles from "../../page.module.css";
-import { addDoc, collection, db, deleteDoc, getDocs, limit, orderBy, query } from "../../../FirebaseComfig";
+import Cards from "../deteils/cards";
+import styles from "../page.module.css";
+import { addDoc, collection, db, deleteDoc, getDocs, limit, orderBy, query } from "../../FirebaseComfig";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-const MenSection = () => {
+import { Link, useParams } from "react-router-dom";
+const ProductCollors = () => {
+    const {collor} = useParams() 
     const [product,setProduct] = useState([])
-
     const [chenge,setchenge] = useState(false)
     const [loading,setLoading] = useState(true)
     useEffect (() =>{
@@ -27,7 +27,7 @@ const MenSection = () => {
     },[chenge])
 
  
-        const collor = product.filter(e => e.collor == e.collor)
+
         const black = product.filter(e => e.collor == 'black');
         const white = product.filter(e => e.collor == 'white');
         const red = product.filter(e => e.collor == 'red');
@@ -41,7 +41,6 @@ const MenSection = () => {
         return (
             <div className={styles.WmSection}>
                 <section>
-                    <div className={styles.space}></div>
                         <h3 className={styles.rout}><Link href={'/'} style={{color:'blue'}}>Home</Link>/men</h3>
                         
                         <div className={styles.Card_container}>
@@ -57,22 +56,21 @@ const MenSection = () => {
                             </div>
                             <div className={styles.Card_body}>
                                 <div className={styles.details}>
-                                    <h2 style={{borderBottom:'1px solid black',width:'100%'}}>Price:</h2>
-                                <div className={styles.price_infos} style={{marginTop:'5px'}}>
+                                <div className={styles.price_infos}>
                                     <p>$81.97</p>
                                 <div className={styles.sorcul1}></div>
                                 <div className={styles.horiz}></div>
                                 <div className={styles.sorcul2}></div>
                                     <p>$225</p>
                                 </div>
-                                <h2 style={{borderBottom:'1px solid black',width:'100%'}}>Collors:</h2>
-                                <p className={styles.collors} to={`/${collor}`}> <div className={styles.collor1}></div> Black: {black.length}</p>
-                                <p className={styles.collors} to={`/${collor}`}> <div className={styles.collor2}></div> White: {white.length}</p>
-                                <p className={styles.collors} to={`/${collor}`}> <div className={styles.collor3}></div> Red: {red.length}</p>
-                                <p className={styles.collors} to={`./${collor}`}> <div className={styles.collor4}></div> Green: {green.length}</p>
-                                <p className={styles.collors} to={`./${collor}`}> <div className={styles.collor5}></div> Blue: {blue.length}</p>
-                                <p className={styles.collors} to={`./${collor}`}> <div className={styles.collor9}></div> yellow: {yellow.length}</p>
-                                <p className={styles.collors} to={`./${collor}`}> <div className={styles.collor8}></div> Another: {another.length}</p>
+                                <h2>Collors</h2>
+                                <Link className={styles.collors} to={'./black_shoes'}> <div className={styles.collor1}></div> Black: {black.length}</Link>
+                                <Link className={styles.collors} to={'./white_shoes'}> <div className={styles.collor2}></div> White: {white.length}</Link>
+                                <Link className={styles.collors} to={'./red_shoes'}> <div className={styles.collor3}></div> Red: {red.length}</Link>
+                                <Link className={styles.collors} to={'./green_shoes'}> <div className={styles.collor4}></div> Green: {green.length}</Link>
+                                <Link className={styles.collors} to={'./blue_shoes'}> <div className={styles.collor5}></div> Blue: {blue.length}</Link>
+                                <Link className={styles.collors} to={'./blue_shoes'}> <div className={styles.collor9}></div> yellow: {yellow.length}</Link>
+                                <Link className={styles.collors} to={'./another_shoes'}> <div className={styles.collor8}></div> Another: {another.length}</Link>
                                 </div>
                                 <div className={styles.Card_request}>
                                 {loading? (<div className={styles.loadings}><div className={styles.loading}></div><div className={styles.loading2}></div><div className={styles.loading3}></div></div>):product.map(e=>
@@ -102,4 +100,4 @@ const MenSection = () => {
     }
     
 
-export default MenSection;
+export default ProductCollors;

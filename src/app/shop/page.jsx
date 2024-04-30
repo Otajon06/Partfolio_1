@@ -8,6 +8,8 @@ export default function Shop() {
       <div className={styles.description}>
         <Navbar/>
       </div>
+      <div className={styles.space}></div>
+
         <ShopSection/>
     </main>
   );

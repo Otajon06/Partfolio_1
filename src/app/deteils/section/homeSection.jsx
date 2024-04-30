@@ -1,4 +1,4 @@
-import Cards from "../cards";
+import HomeCards from "../homeCards";
 import styles from "../../page.module.css";
 import { collection, db, getDocs, limit, orderBy, query,addDoc } from "../../../FirebaseComfig";
 import { useEffect, useState } from "react";
@@ -23,7 +23,7 @@ const HomeSection = () => {
             const basaArr = dataBasa.docs.map(doc=>doc.data());
             setProduct(basaArr);
         } catch (error) {
-            console.log(error);                
+            // console.log(error);                
         }
     }
     const getMenData = async ()=>{
@@ -33,7 +33,7 @@ const HomeSection = () => {
             const basaArr = dataBasa.docs.map(doc=>doc.data());
             setProductMen(basaArr);
         } catch (error) {
-            console.log(error);                
+            // console.log(error);                
         }
     }
     getData();
@@ -64,7 +64,7 @@ const setInfo = async (e)=>{
     setPrice([])
     setCollor([])
 }
-    console.log(product);
+    // console.log(product);
     return (
         <div className={styles.HSection} >
             
@@ -115,13 +115,14 @@ const setInfo = async (e)=>{
                     </div>
                 </div>
                 <div style={{display:"flex",flexWrap:'wrap',justifyContent:'center',alignItems:'center'}}>
-                <h1>MEN SHOES</h1>
+                <h1 className={styles.h1}>MEN SHOES</h1>
                 </div>
                 <div style={{margin:'15px 0 0 0 '}} className={styles.Card_container}>
                     {product.map(e=>
-                        <Cards rasm={e.rasm} 
+                        <HomeCards rasm={e.rasm} 
                         title={e.title} 
                         style={styles.card_img}
+                        collor={e.collor}
                         gen={'women'}
                         btn={e.btn} />
                         )}
@@ -131,7 +132,7 @@ const setInfo = async (e)=>{
                 </div>
                 <div className={styles.Card_container}>
                     {productMen.map(e=>
-                        <Cards rasm={e.rasm} 
+                        <HomeCards rasm={e.rasm} 
                         rasm2=''
                         title={e.title} 
                         style={styles.card_img}
